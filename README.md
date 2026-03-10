@@ -2,6 +2,8 @@
 
 An AI-powered document Q&A system built with FastAPI, LangChain, and ChromaDB.
 
+![ScreenRecording2026-03-11at12 16 12AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b7a26e3c-13bc-4cfe-b504-e5f488b28a47)
+
 ## Project Structure
 
 ```
