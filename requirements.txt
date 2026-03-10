@@ -11,4 +11,4 @@ streamlit
 requests
 sentence-transformers
 langchain-huggingface
-langchain-vectorstores
+langchain-chroma

@@ -5,8 +5,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def get_answer(query: str, context_docs: list):
+def get_answer(query: str, context_docs: list, chat_history: list = []):
     context = "\n\n".join([doc.page_content for doc in context_docs])
+    
+    # Format chat history into readable string
+    history_text = ""
+    for turn in chat_history:
+        history_text += f"Human: {turn['question']}\nAssistant: {turn['answer']}\n\n"
     
     prompt = PromptTemplate.from_template("""
     You are a helpful assistant. Answer the question based only on the provided context.
@@ -14,6 +19,9 @@ def get_answer(query: str, context_docs: list):
     
     Context:
     {context}
+    
+    Previous Conversation:
+    {history}
     
     Question: {question}
     
@@ -27,5 +35,9 @@ def get_answer(query: str, context_docs: list):
     )
     
     chain = prompt | llm
-    response = chain.invoke({"context": context, "question": query})
+    response = chain.invoke({
+        "context": context,
+        "question": query,
+        "history": history_text
+    })
     return response.content
