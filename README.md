@@ -100,9 +100,3 @@ Then:
 1. Upload PDF documents using the sidebar
 2. Wait for processing
 3. Type your question and get AI-powered answers
-
-## Development
-
-- FastAPI documentation: http://localhost:8000/docs
-- Alternative API docs: http://localhost:8000/redoc
-
